@@ -1,9 +1,9 @@
-baseURL = 'https://example.org/'
-languageCode = 'en'
-title = 'My New Hugo Site'
+baseURL = 'https://rmqg.github.io/'
+languageCode = 'zh-CN'
+title = '若木秋光のBlog Ver.3.0'
 theme = 'hugo-theme-reimu'
 
-defaultContentLanguage = 'en'
+defaultContentLanguage = 'zh-CN'
 [languages]
 [languages.en]
 languageName = 'English'
@@ -31,10 +31,12 @@ guessSyntax = true
 noClasses = false
 
 [outputs]
-home = ["Algolia", "HTML", "RSS"]
+# home = ["Algolia", "HTML", "RSS"]
+home = ["HTML", "RSS"]
 
-[outputFormats.Algolia]
-baseName = "algolia"
-isPlainText = true
-mediaType = "application/json"
-notAlternative = true
+## Algolia
+# [outputFormats.Algolia]
+# baseName = "algolia"
+# isPlainText = true
+# mediaType = "application/json"
+# notAlternative = true
