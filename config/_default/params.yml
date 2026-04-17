@@ -563,7 +563,7 @@ icp:
 
 # 萌国 ICP 备案
 moe_icp:
-  icpnumber: 萌ICP备20260910号 # 萌国ICP备案号
+  icpnumber: 20260910 # 萌国ICP备案号
 
 # Sponsor
 sponsor:
