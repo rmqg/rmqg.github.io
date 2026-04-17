@@ -26,9 +26,9 @@ monthFormat: "2006-01"
 dateFormat: "2006-01-02"
 timeFormat: "2006-01-02 15:04:05"
 
-author: D-Sketon
-email: xxx@example.com
-description: "少女祈祷中..."
+author: 若木秋光
+email: ruomuqg@gmail.com
+description: "ここから、始めましょう。一から…いいえ、ゼロから！"
 # subtitle: "少女祈祷中..."
 subtitle:
   typing:
@@ -47,7 +47,7 @@ subtitle:
     showCursor: true            # 是否显示闪烁的字符
     cursorChar: "|"             # 字符
     smartBackspace: false       # 智能退格，只删除不同的部分
-  text: "少女祈祷中..."        # 当 typing.enable = false 时使用
+  text: "ここから、始めましょう。一から…いいえ、ゼロから！"        # 当 typing.enable = false 时使用
 
 banner: "images/banner.webp"
 # You can also write it in the form of the following url
@@ -458,11 +458,11 @@ algolia_search:
 preloader:
   enable: true
   text: 
-    zh-CN: 少女祈祷中...
-    zh-TW: 少女祈禱中...
-    en: Loading...
-    ja: 少女祈祷中...
-    pt-BR: Carregando...
+    zh-CN: "从这里开始吧。从一开始…不，从零开始！"
+    zh-TW: "從這裡開始吧。從一開始…不，從零開始！"
+    en: "Let's start from here. From the beginning… no, from zero!"
+    ja: "ここから、始めましょう。一から…いいえ、ゼロから！"
+    pt-BR: "Vamos começar daqui. Do começo… não, do zero!"
   icon: # default use inline svg for fast speed, you can use a image url, like '/images/taichi.png'
   rotate: true # whether to rotate the icon
 
