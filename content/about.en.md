@@ -25,3 +25,6 @@ I usually post study notes, experiment logs, tinkering records, and project summ
 
 ## Update Frequency
 Currently updated irregularly.
+
+---
+{{< heatMapCard levelStandard="1000,5000,10000" >}}
