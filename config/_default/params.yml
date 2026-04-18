@@ -529,13 +529,13 @@ firework:
 
 # show the copyright below each article
 article_copyright:
-  enable: false
+  enable: true
   content:
     author: true
     link: true
-    title: false
-    date: false
-    updated: false
+    title: true
+    date: true
+    updated: true
     license: true
     license_type: by-nc-sa # https://creativecommons.org/licenses
 
@@ -571,7 +571,7 @@ moe_icp:
 
 # Sponsor
 sponsor:
-  enable: false
+  enable: true
   tip: 
     zh-CN: 请作者喝杯咖啡吧
     zh-TW: 請作者喝杯咖啡吧
@@ -583,26 +583,26 @@ sponsor:
     rotate: true
     mask: true # whether to use the images as a mask
   qr:
-    # - name: 支付宝
-    #   src: "sponsor/alipay.jpg"
-    # - name: 微信
-    #   src: "sponsor/wechat.png"
+    - name: 支付宝
+      src: "sponsor/alipay.jpg"
+    - name: 微信
+      src: "sponsor/wechat.png"
 
 # Share
 share:
-  # - facebook
-  # - twitter
-  # - linkedin
-  # - reddit
-  # - weibo
-  # - qq
-  # - weixin
+  - facebook
+  - twitter
+  - linkedin
+  - reddit
+  - weibo
+  - qq
+  - weixin
 
 # show categories card on home page
 home_categories:
   enable: false
   content:
-    - categories: # string (single-layer category) or array (multi-layer category)
+    - categories: Test # string (single-layer category) or array (multi-layer category)
       cover: # empty means random cover
     - categories:
       cover:
@@ -637,7 +637,7 @@ injector:
 
 # Experimental, may have a lot of bugs, open with caution!
 pjax:
-  enable: false
+  enable: true
 
 # Experimental
 # https://github.com/GoogleChromeLabs/quicklink
@@ -663,7 +663,7 @@ live2d:
 
 # Experimental
 live2d_widgets:
-  enable: false
+  enable: true
   position: left # left or right
 
 # https://github.com/CodeByZach/pace
@@ -678,25 +678,25 @@ player:
   # if you enable meting, you must enable aplayer first
   aplayer:
     # https://github.com/DIYgod/APlayer
-    enable: false
+    enable: true
     options:
       audio: []
       fixed: true
-      autoplay:
-      loop:
-      order:
-      preload:
-      volume:
-      mutex:
-      listFolded:
-      lrcType:
+      autoplay: true
+      loop: all
+      order: random
+      preload: auto
+      volume: 0.7
+      mutex: true
+      listFolded: true
+      lrcType: 0
   meting:
     # https://github.com/metowolf/MetingJS
     # if you want to use meting, please enable aplayer first
-    enable: false
-    meting_api: # custom api
+    enable: true
+    meting_api: https://api.injahow.cn/meting/ # custom api
     options:
-      id: 2265921590
+      id: 17883899120
       server: netease
       type: playlist
       auto:
