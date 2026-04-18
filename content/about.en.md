@@ -7,7 +7,7 @@ lastmod: 2026-04-18T17:02:34+08:00
 ---
 
 ## Basic Info
-Nickname: Ruomu Qiuguang
+CN: Ruomu Qiuguang
 
 I am currently a second-year undergraduate student in Electronic Information at Sun Yat-sen University. I enjoy tinkering with Linux, software/hardware systems, various development tools, and AI, and I am actively expanding my technical stack.
 
