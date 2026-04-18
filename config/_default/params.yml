@@ -304,9 +304,10 @@ clipboard:
     ja: コピー失敗 (ﾟ⊿ﾟ)ﾂ
     pt-BR: Falha ao copiar (ﾟ⊿ﾟ)ﾂ
   copyright:
-    enable: true
+    enable: false # whether to add copyright when copying content
     count: 50 # The number of characters when the copyright is displayed
     license_type: by-nc-sa # https://creativecommons.org/licenses
+    content: "本文来源: 若木秋光のBlog https://rmqg.github.io"
 
 math:
   katex:
@@ -645,6 +646,18 @@ injector:
       bottom: 320px !important;
     }
     </style>
+    <script>
+    (function () {
+      try {
+        var modelId = localStorage.getItem("modelId");
+        var modelTexturesId = localStorage.getItem("modelTexturesId");
+        if (modelId === null || modelTexturesId === null) {
+          localStorage.setItem("modelId", "0");
+          localStorage.setItem("modelTexturesId", "0");
+        }
+      } catch (e) {}
+    })();
+    </script>
   body_begin: # Inject code snippet right after <body>
   body_end: |-
     <script>
@@ -724,7 +737,7 @@ player:
     enable: true
     options:
       audio: []
-      fixed: true
+      fixed: false
       autoplay: true
       loop: all
       order: random
