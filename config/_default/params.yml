@@ -169,7 +169,7 @@ tagcloud_limits: 20
 only_show_capsule_in_index: false # If you have hugo amounts of tags and categories, you can set this to true to only show the capsule in the index page for better performance
 uppercase_capsule: true # If you want to keep taxonomic capsule unchanged, please set this to false
 
-show_update_time: false # If you want to show the update time, please set this to true
+show_update_time: true # If you want to show the update time, please set this to true
 
 # Summary content
 summary:
@@ -209,9 +209,9 @@ layout:
   max_width: 1350px # the max width of the main content area
 
 triangle_badge:
-  enable: false
+  enable: true
   icon: github # same as the icon in the social config
-  link: https://github.com/D-Sketon/hugo-theme-reimu
+  link: https://github.com/rmqg/
 
 anchor_icon: # default use '#' icon, you can use a hexadecimal representation of fontawesome or icon_font, like 'f0c1', you can also use false to hide anchor icon
 
@@ -241,11 +241,11 @@ font:
   enable: true
   article:
     - Mulish
-    - Noto Serif SC
+    - Noto Sans SC
   code:
     # - Ubuntu Mono
     # - Source Code Pro
-    # - JetBrains Mono
+    - JetBrains Mono
 
 # Local FallBack Font
 local_font:
@@ -280,7 +280,7 @@ clarity: false
 
 # mermaid url https://github.com/mermaid-js/mermaid
 mermaid:
-  zoom: false # whether to enable zoom for mermaid diagrams
+  zoom: true # whether to enable zoom for mermaid diagrams
 
 code_block:
   # whether to expand the code block by default
@@ -304,7 +304,7 @@ clipboard:
     ja: コピー失敗 (ﾟ⊿ﾟ)ﾂ
     pt-BR: Falha ao copiar (ﾟ⊿ﾟ)ﾂ
   copyright:
-    enable: false
+    enable: true
     count: 50 # The number of characters when the copyright is displayed
     license_type: by-nc-sa # https://creativecommons.org/licenses
 
@@ -355,7 +355,7 @@ comment:
     zh-TW: 說些什麼吧！
     ja: コメントを残す
     pt-BR: Deixe um comentário
-  default: waline # default comment system, when you enable multiple comment systems
+  default: giscus # default comment system, when you enable multiple comment systems
 
 # valine comment system. https://valine.js.org
 # version 1.5.1
@@ -416,19 +416,19 @@ gitalk:
 
 # https://giscus.app/zh-CN
 giscus:
-  enable: false
-  repo:
-  repoId:
-  category:
-  categoryId:
-  mapping: mapping
+  enable: true
+  repo: rmqg/rmqg.github.io
+  repoId: R_kgDOSFIuEQ
+  category: Announcements
+  categoryId: DIC_kwDOSFIuEc4C7HRY
+  mapping: pathname
   strict: 0
   reactionsEnabled: 1
   emitMetadata: 0
   inputPosition: bottom
   theme:
-    light:
-    dark:
+    light: light
+    dark: dark
 
 # https://disqus.com
 disqus:
@@ -615,7 +615,21 @@ home_categories:
 # Make sure your code snippet is safeHTML
 injector:
   head_begin: # Inject code snippet right after <head>
-  head_end: # Inject code snippet right before </head>
+  head_end: |-
+    <style>
+    .icon-netease { color: #c20c0c; }
+    [data-theme="dark"] .icon-netease { color: #e85d5d; }
+    .icon-netease::before {
+      content: '';
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      background-color: currentColor;
+      -webkit-mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTExLjggMEM1LjMgMCAwIDUuMyAwIDExLjhzNS4zIDExLjggMTEuOCAxMS44IDExLjgtNS4zIDExLjgtMTEuOFMxOC4zIDAgMTEuOCAwem0tLjcgNS41IDYuNSAyYy40LjEuNi41LjYuOXYxMC4zYzAgMS4zLTEgMi4zLTIuMyAyLjNzLTIuMy0xLTIuMy0yLjMgMS0yLjMgMi4zLTIuM2MuMyAwIC41IDAgLjguMVY5LjZsLTUtMS41djkuNGMwIDEuMy0xIDIuMy0yLjMgMi4zcy0yLjMtMS0yLjMtMi4zIDEtMi4zIDIuMy0yLjNjLjMgMCAuNSAwIC44LjFWNi4zYzAtLjQuMy0uOC45LS44eiIvPjwvc3ZnPg==") center/contain no-repeat;
+      mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTExLjggMEM1LjMgMCAwIDUuMyAwIDExLjhzNS4zIDExLjggMTEuOCAxMS44IDExLjgtNS4zIDExLjgtMTEuOFMxOC4zIDAgMTEuOCAwem0tLjcgNS41IDYuNSAyYy40LjEuNi41LjYuOXYxMC4zYzAgMS4zLTEgMi4zLTIuMyAyLjNzLTIuMy0xLTIuMy0yLjMgMS0yLjMgMi4zLTIuM2MuMyAwIC41IDAgLjguMVY5LjZsLTUtMS41djkuNGMwIDEuMy0xIDIuMy0yLjMgMi4zcy0yLjMtMS0yLjMtMi4zIDEtMi4zIDIuMy0yLjNjLjMgMCAuNSAwIC44LjFWNi4zYzAtLjQuMy0uOC45LS44eiIvPjwvc3ZnPg==") center/contain no-repeat;
+      vertical-align: middle;
+    }
+    </style>
   body_begin: # Inject code snippet right after <body>
   body_end: # Inject code snippet right before </body>
   sidebar_begin: # Inject code snippet right after <aside>
