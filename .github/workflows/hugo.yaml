@@ -38,7 +38,7 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: 构建站点
-        run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+        run: hugo --gc --minify
 
       - name: 上传构建产物
         uses: actions/upload-pages-artifact@v3
