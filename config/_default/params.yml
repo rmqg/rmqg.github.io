@@ -629,6 +629,18 @@ injector:
       mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTExLjggMEM1LjMgMCAwIDUuMyAwIDExLjhzNS4zIDExLjggMTEuOCAxMS44IDExLjgtNS4zIDExLjgtMTEuOFMxOC4zIDAgMTEuOCAwem0tLjcgNS41IDYuNSAyYy40LjEuNi41LjYuOXYxMC4zYzAgMS4zLTEgMi4zLTIuMyAyLjNzLTIuMy0xLTIuMy0yLjMgMS0yLjMgMi4zLTIuM2MuMyAwIC41IDAgLjguMVY5LjZsLTUtMS41djkuNGMwIDEuMy0xIDIuMy0yLjMgMi4zcy0yLjMtMS0yLjMtMi4zIDEtMi4zIDIuMy0yLjNjLjMgMCAuNSAwIC44LjFWNi4zYzAtLjQuMy0uOC45LS44eiIvPjwvc3ZnPg==") center/contain no-repeat;
       vertical-align: middle;
     }
+    .aplayer.aplayer-fixed {
+      background: transparent !important;
+      box-shadow: none !important;
+      border: none !important;
+      bottom: 280px !important;
+    }
+    .aplayer.aplayer-fixed .aplayer-list.aplayer-list-hide {
+      border: none !important;
+    }
+    .aplayer.aplayer-fixed .aplayer-body {
+      bottom: 280px !important;
+    }
     </style>
   body_begin: # Inject code snippet right after <body>
   body_end: # Inject code snippet right before </body>
@@ -673,7 +685,7 @@ pace:
 # Experimental
 # Please turn on pjax to use this feature
 player:
-  disable_on_mobile: false
+  disable_on_mobile: true
   position: before_sidebar # before_sidebar | after_sidebar | after_widget
   # if you enable meting, you must enable aplayer first
   aplayer:
@@ -686,7 +698,7 @@ player:
       loop: all
       order: random
       preload: auto
-      volume: 0.7
+      volume: 0.3
       mutex: true
       listFolded: true
       lrcType: 0
