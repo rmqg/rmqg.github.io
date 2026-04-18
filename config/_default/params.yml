@@ -694,7 +694,7 @@ player:
     # https://github.com/metowolf/MetingJS
     # if you want to use meting, please enable aplayer first
     enable: true
-    meting_api: https://api.injahow.cn/meting/ # custom api
+    meting_api: https://meting-api-e2ir.vercel.app/ # custom api
     options:
       id: 17883899120
       server: netease
