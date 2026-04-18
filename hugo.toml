@@ -1,4 +1,4 @@
-baseURL = 'https://rmqg.github.io/'
+baseURL = 'https://blog.rmqg.org/'
 languageCode = 'zh-CN'
 title = '若木秋光のBlog Ver.3.0'
 theme = 'hugo-theme-reimu'
