@@ -633,7 +633,7 @@ injector:
       background: transparent !important;
       box-shadow: none !important;
       border: none !important;
-      bottom: 280px !important;
+      bottom: 320px !important;
     }
     .aplayer.aplayer-fixed .aplayer-list.aplayer-list-hide {
       border: none !important;
@@ -642,7 +642,7 @@ injector:
       display: inline-block !important;
     }
     .aplayer.aplayer-fixed .aplayer-body {
-      bottom: 280px !important;
+      bottom: 320px !important;
     }
     </style>
   body_begin: # Inject code snippet right after <body>
