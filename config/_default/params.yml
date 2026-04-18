@@ -638,6 +638,9 @@ injector:
     .aplayer.aplayer-fixed .aplayer-list.aplayer-list-hide {
       border: none !important;
     }
+    .aplayer.aplayer-fixed .aplayer-icon-loop {
+      display: inline-block !important;
+    }
     .aplayer.aplayer-fixed .aplayer-body {
       bottom: 280px !important;
     }
