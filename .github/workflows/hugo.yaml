@@ -37,13 +37,16 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
 
-      - name: 构建站点
-        run: hugo --gc --minify
+      - name: 构建站点（备份域名，用于 GitHub Pages）
+        run: hugo --gc --minify --baseURL "https://rmqg.github.io/"
 
       - name: 上传构建产物到github
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
+
+      - name: 构建站点（主域名，用于 COS）
+        run: hugo --gc --minify --baseURL "https://blog.rmqg.org/"
 
       - name: 上传到多吉云 COS
         uses: zu1k/dogecloud-cos-action@v0.1
