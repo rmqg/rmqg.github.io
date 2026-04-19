@@ -40,10 +40,21 @@ jobs:
       - name: 构建站点
         run: hugo --gc --minify
 
-      - name: 上传构建产物
+      - name: 上传构建产物到github
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
+
+      - name: 上传到多吉云 COS
+        uses: zu1k/dogecloud-cos-action@v0.1
+        with:
+          access_key: ${{ secrets.DOGE_ACCESS_KEY }}
+          secret_key: ${{ secrets.DOGE_SECRET_KEY }}
+          bucket: ${{ secrets.DOGE_BUCKET }}
+          region: ${{ secrets.DOGE_REGION }}
+          local_path: public
+          remote_path: /
+          clean: true
 
   deploy:
     environment:
