@@ -3,7 +3,7 @@ title: d2l学习记录
 description: d2l学习记录
 
 date: 2026-04-20T14:23:30+08:00
-lastmod: 2026-04-20T14:23:30+08:00
+lastmod: 2026-05-06T12:00:00+08:00
 
 categories:
   - d2l

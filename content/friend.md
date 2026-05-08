@@ -3,13 +3,16 @@ title: 友情链接
 description: 友情链接
 
 date: 2026-04-18T18:09:50+08:00
-lastmod: 2026-04-18T18:09:50+08:00
+lastmod: 2026-05-06T12:00:00+08:00
 ---
 
 ## 本站信息
 
 - 站名： 若木秋光の Blog Ver.3.0
 - 站长： 若木秋光
+- 网址： https://blog.rmqg.org/
+- 图片： https://blog.rmqg.org/avatar/avatar.webp
+- 描述： 一个普通的大学生
 
 ## 申请方法
 
