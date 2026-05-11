@@ -2,6 +2,9 @@
 title: 转专业纪要，又作对大学前两年的小结
 description: 从电信院到网安院，大学前两年的回顾与思考
 
+banner: /images/posts/transfer-banner.webp
+cover: /images/posts/transfer-banner.webp
+
 date: 2026-05-12T01:00:00+08:00
 lastmod: 2026-05-12T01:00:00+08:00
 
