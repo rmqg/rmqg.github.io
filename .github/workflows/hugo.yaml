@@ -18,7 +18,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.160.0
+      HUGO_VERSION: 0.161.0
     steps:
       - name: 拉取代码
         uses: actions/checkout@v4
@@ -33,12 +33,8 @@ jobs:
           tar -C ~/.local/hugo -xf "hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
           echo "$HOME/.local/hugo" >> $GITHUB_PATH
 
-      - name: 配置 Pages
-        id: pages
-        uses: actions/configure-pages@v5
-
-      - name: 构建站点（GitHub Pages）
-        run: hugo --gc --minify --baseURL "https://rmqg.github.io/"
+      - name: 构建站点
+        run: hugo --gc --minify --baseURL "https://blog.rmqg.org/"
 
       - name: 上传构建产物到 GitHub
         uses: actions/upload-pages-artifact@v3
@@ -55,4 +51,3 @@ jobs:
       - name: 部署到 GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
