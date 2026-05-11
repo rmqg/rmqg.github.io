@@ -1,0 +1,33 @@
+<div class="article-date">
+  <span
+    class="article-date-link icon-calendar"
+    data-aos="{{ .Site.Params.animation.options.article.date }}"
+  >
+    <time datetime="{{ .Date }}" itemprop="datePublished"
+      >{{ .Date.Format .Site.Params.dateFormat }}</time
+    >
+    <time style="display: none;" id="post-update-time"
+      >{{ .Lastmod.Format .Site.Params.dateFormat }}</time
+    >
+  </span>
+  {{- if .Site.Params.show_update_time -}}
+    <span
+      class="article-date-link icon-calendar-plus"
+      data-aos="{{ .Site.Params.animation.options.article.date }}"
+    >
+      <time datetime="{{ .Lastmod }}" itemprop="dateModified"
+        >{{ .Lastmod.Format .Site.Params.dateFormat }}</time
+      >
+    </span>
+  {{- end -}}
+  <span
+    class="article-date-link icon-pencil"
+    data-aos="{{ .Site.Params.animation.options.article.date }}"
+    >{{ i18n "post.count" .WordCount }}</span
+  >
+  <span
+    class="article-date-link icon-clock"
+    data-aos="{{ .Site.Params.animation.options.article.date }}"
+    >{{ i18n "post.time" .ReadingTime }}</span
+  >
+</div>
