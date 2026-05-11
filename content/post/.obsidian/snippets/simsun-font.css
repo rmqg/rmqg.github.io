@@ -1,0 +1,4 @@
+body {
+  --font-text-override: "SimSun", "宋体", serif;
+  --font-interface-override: "SimSun", "宋体", sans-serif;
+}
