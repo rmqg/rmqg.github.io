@@ -38,19 +38,19 @@ subtitle:
       # - Sentence 2
       # - Sentence 3
       # - Sentence 4
-        - "若木秋光のBlog へようこそ！"
-        - "ここから、始めましょう。一から…いいえ、ゼロから！"
-        - "さあ、ゲームを始めよう。"
-    typeSpeed: 100              # 打字速度（毫秒/字符） 
-    backSpeed: 50               # 删除速度（毫秒/字符）
-    backDelay: 2000             # 打完一句话后，等待时间
-    startDelay: 300             # 页面加载后，等待时间
-    loop: true                  # 是否循环播放
-    shuffle: true              # 是否随机输出句子
-    showCursor: true            # 是否显示闪烁的字符
-    cursorChar: "|"             # 字符
-    smartBackspace: false       # 智能退格，只删除不同的部分
-  text: "ここから、始めましょう。一から…いいえ、ゼロから！"        # 当 typing.enable = false 时使用
+      - "若木秋光のBlog へようこそ！"
+      - "ここから、始めましょう。一から…いいえ、ゼロから！"
+      - "さあ、ゲームを始めよう。"
+    typeSpeed: 100 # 打字速度（毫秒/字符）
+    backSpeed: 50 # 删除速度（毫秒/字符）
+    backDelay: 2000 # 打完一句话后，等待时间
+    startDelay: 300 # 页面加载后，等待时间
+    loop: true # 是否循环播放
+    shuffle: true # 是否随机输出句子
+    showCursor: true # 是否显示闪烁的字符
+    cursorChar: "|" # 字符
+    smartBackspace: false # 智能退格，只删除不同的部分
+  text: "ここから、始めましょう。一から…いいえ、ゼロから！" # 当 typing.enable = false 时使用
 
 banner: "images/banner.webp"
 # You can also write it in the form of the following url
@@ -118,7 +118,7 @@ footer:
 # sidebar: right # deprecated, use sidebar.position instead
 sidebar:
   position: right
-  menu: true  # whether to show the sidebar menu button, ignored on mobile devices
+  menu: true # whether to show the sidebar menu button, ignored on mobile devices
   article:
     show_common: true # whether to show common sidebar, ignored on mobile devices
 
@@ -138,6 +138,7 @@ social:
   # dribbble: https://dribbble.com/yourname
   # behance: https://www.behance.net/yourname
   bilibili: https://space.bilibili.com/510633278
+  xiaohongshu: https://www.xiaohongshu.com/user/profile/66fe2829000000001d02247c # 小红书
   # weibo: https://weibo.com/yourname
   # zhihu: https://www.zhihu.com/people/yourname
   # reddit: https://www.reddit.com/user/yourname
@@ -174,13 +175,13 @@ show_update_time: true # If you want to show the update time, please set this to
 # Summary content
 summary:
   enable: false
-  style: 'subtitle' # 'subtitle' or 'blockquote'
+  style: "subtitle" # 'subtitle' or 'blockquote'
 
 # RSS output
 rss:
-  limit: 10             # The number of recent articles to be output, write -1 to output all
+  limit: 10 # The number of recent articles to be output, write -1 to output all
   showFullContent: false # output full content or description
-  showCopyright: false   # If true, add copyright to the end of article.
+  showCopyright: false # If true, add copyright to the end of article.
 
 # Sort order configuration
 # Available values: default, date, date-reverse, weight, weight-reverse
@@ -218,7 +219,7 @@ anchor_icon: # default use '#' icon, you can use a hexadecimal representation of
 reimu_cursor:
   enable: true
   cursor:
-    default: ../images/cursor/reimu-cursor-default.png  # this path is relative to the css/main.css, so it needs to go up one level to reach the images folder
+    default: ../images/cursor/reimu-cursor-default.png # this path is relative to the css/main.css, so it needs to go up one level to reach the images folder
     pointer: ../images/cursor/reimu-cursor-pointer.png
     text: ../images/cursor/reimu-cursor-text.png
 
@@ -291,13 +292,13 @@ code_block:
 
 # Clipboard configuration
 clipboard:
-  success: 
+  success:
     en: Copy successfully (*^▽^*)
     zh-CN: 复制成功 (*^▽^*)
     zh-TW: 複製成功 (*^▽^*)
     ja: コピー成功 (*^▽^*)
     pt-BR: Copiado com sucesso (*^▽^*)
-  fail: 
+  fail:
     en: Copy failed (ﾟ⊿ﾟ)ﾂ
     zh-CN: 复制失败 (ﾟ⊿ﾟ)ﾂ
     zh-TW: 複製失敗 (ﾟ⊿ﾟ)ﾂ
@@ -315,7 +316,7 @@ math:
   mathjax:
     enable: false
     options: # see https://docs.mathjax.org/en/latest/web/configuration.html
-    # we need to put the configuration in an array, because hugo will automatically convert the key to lowercase
+      # we need to put the configuration in an array, because hugo will automatically convert the key to lowercase
       [
         {
           tex:
@@ -462,7 +463,7 @@ algolia_search:
 
 preloader:
   enable: true
-  text: 
+  text:
     zh-CN: "从这里开始吧。从一开始…不，从零开始！"
     zh-TW: "從這裡開始吧。從一開始…不，從零開始！"
     en: "Let's start from here. From the beginning… no, from zero!"
@@ -573,7 +574,7 @@ moe_icp:
 # Sponsor
 sponsor:
   enable: true
-  tip: 
+  tip:
     zh-CN: 请作者喝杯咖啡吧
     zh-TW: 請作者喝杯咖啡吧
     en: Buy me a coffee
@@ -618,17 +619,26 @@ injector:
   head_begin: # Inject code snippet right after <head>
   head_end: |-
     <style>
-    .icon-netease { color: #c20c0c; }
-    [data-theme="dark"] .icon-netease { color: #e85d5d; }
-    .icon-netease::before {
+    .icon-netease { color: #d43c33; }
+    [data-theme="dark"] .icon-netease { color: #f36f65; }
+    .icon-xiaohongshu { color: #ff2442; }
+    [data-theme="dark"] .icon-xiaohongshu { color: #ff6a7d; }
+    .icon-netease::before,
+    .icon-xiaohongshu::before {
       content: '';
       display: inline-block;
       width: 1em;
       height: 1em;
       background-color: currentColor;
-      -webkit-mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTExLjggMEM1LjMgMCAwIDUuMyAwIDExLjhzNS4zIDExLjggMTEuOCAxMS44IDExLjgtNS4zIDExLjgtMTEuOFMxOC4zIDAgMTEuOCAwem0tLjcgNS41IDYuNSAyYy40LjEuNi41LjYuOXYxMC4zYzAgMS4zLTEgMi4zLTIuMyAyLjNzLTIuMy0xLTIuMy0yLjMgMS0yLjMgMi4zLTIuM2MuMyAwIC41IDAgLjguMVY5LjZsLTUtMS41djkuNGMwIDEuMy0xIDIuMy0yLjMgMi4zcy0yLjMtMS0yLjMtMi4zIDEtMi4zIDIuMy0yLjNjLjMgMCAuNSAwIC44LjFWNi4zYzAtLjQuMy0uOC45LS44eiIvPjwvc3ZnPg==") center/contain no-repeat;
-      mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTExLjggMEM1LjMgMCAwIDUuMyAwIDExLjhzNS4zIDExLjggMTEuOCAxMS44IDExLjgtNS4zIDExLjgtMTEuOFMxOC4zIDAgMTEuOCAwem0tLjcgNS41IDYuNSAyYy40LjEuNi41LjYuOXYxMC4zYzAgMS4zLTEgMi4zLTIuMyAyLjNzLTIuMy0xLTIuMy0yLjMgMS0yLjMgMi4zLTIuM2MuMyAwIC41IDAgLjguMVY5LjZsLTUtMS41djkuNGMwIDEuMy0xIDIuMy0yLjMgMi4zcy0yLjMtMS0yLjMtMi4zIDEtMi4zIDIuMy0yLjNjLjMgMCAuNSAwIC44LjFWNi4zYzAtLjQuMy0uOC45LS44eiIvPjwvc3ZnPg==") center/contain no-repeat;
       vertical-align: middle;
+    }
+    .icon-netease::before {
+      -webkit-mask: url("/images/icons/neteasecloudmusic.svg") center/contain no-repeat;
+      mask: url("/images/icons/neteasecloudmusic.svg") center/contain no-repeat;
+    }
+    .icon-xiaohongshu::before {
+      -webkit-mask: url("/images/icons/xiaohongshu.svg") center/contain no-repeat;
+      mask: url("/images/icons/xiaohongshu.svg") center/contain no-repeat;
     }
     .aplayer.aplayer-fixed {
       background: transparent !important;
@@ -762,8 +772,8 @@ player:
 ########################################
 
 pangu:
-  # more information: https://github.com/vinta/pangu.js 
-  enable: true  # enable pangu.js to add space between Chinese and English
+  # more information: https://github.com/vinta/pangu.js
+  enable: true # enable pangu.js to add space between Chinese and English
 
 ########################################
 # Theme
@@ -779,16 +789,16 @@ material_theme:
 
 internal_theme:
   light:
-    --red-0: '#33bbff'
-    --red-1: '#66ccff'
-    --red-2: '#8dd9ff'
-    --red-3: '#b3e6ff'
-    --red-4: '#ccefff'
-    --red-5: '#e6f7ff'
-    --red-5-5: '#f0fbff'
-    --red-6: '#f7fdff'
-    --color-red-6-shadow: 'rgba(102, 204, 255, 0.6)'
-    --color-red-3-shadow: 'rgba(102, 204, 255, 0.3)'
+    --red-0: "#33bbff"
+    --red-1: "#66ccff"
+    --red-2: "#8dd9ff"
+    --red-3: "#b3e6ff"
+    --red-4: "#ccefff"
+    --red-5: "#e6f7ff"
+    --red-5-5: "#f0fbff"
+    --red-6: "#f7fdff"
+    --color-red-6-shadow: "rgba(102, 204, 255, 0.6)"
+    --color-red-3-shadow: "rgba(102, 204, 255, 0.3)"
 
     --highlight-nav: "#f5f5f5"
     --highlight-scrollbar: "#bfe9ff"
@@ -808,10 +818,10 @@ internal_theme:
     --highlight-addition: "#22863a"
     --highlight-addition-bg: "#f0fff4"
   dark:
-    --red-4: 'rgba(179, 230, 255, 0.5)'
-    --red-5: 'rgba(141, 217, 255, 0.2)'
-    --red-5-5: 'rgba(102, 204, 255, 0.12)'
-    --red-6: 'rgba(51, 187, 255, 0.25)'
+    --red-4: "rgba(179, 230, 255, 0.5)"
+    --red-5: "rgba(141, 217, 255, 0.2)"
+    --red-5-5: "rgba(102, 204, 255, 0.12)"
+    --red-6: "rgba(51, 187, 255, 0.25)"
 
     --highlight-nav: "#222830"
     --highlight-scrollbar: "#3d5f74"
