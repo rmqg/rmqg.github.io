@@ -223,7 +223,7 @@ reimu_cursor:
     pointer: ../images/cursor/reimu-cursor-pointer.png
     text: ../images/cursor/reimu-cursor-text.png
 
-icon_font: 4552607_a0oqhord1y
+icon_font: 4552607_ex15nbittbh
 
 # Font loading strategy
 # Custom Font -> Google Fonts -> Local FallBack Font
@@ -341,6 +341,18 @@ math:
         },
       ]
 
+# Paragraph anchor
+# Injects linkable anchor icons into paragraphs and list items in article body.
+# Usage: write {#anchor-xxx} in Markdown; the matching element gets id="anchor-xxx" and an anchor icon.
+anchor:
+  explicit:
+    enable: false
+    marker: "{#anchor-"
+    prefix: "anchor-"
+  auto:
+    enable: false
+    length: 60
+
 ########################################
 # Comment system
 ########################################
@@ -348,7 +360,7 @@ math:
 # global control of the comment system
 # you can use multiple comment systems at the same time
 # load order: localStorage(user manually selects) -> default
-# -> valine -> waline -> twikoo -> gitalk -> giscus -> disqus
+# -> valine -> waline -> twikoo -> gitalk -> giscus -> utterances -> beaudar -> disqus
 comment:
   # comment system title
   title:
@@ -444,6 +456,20 @@ utterances:
   repo: owner/repo # Change this to "Your GitHub Username/The Repository Name" used for storing blog comments
   issue_term: title
   theme: auto # auto means to automatically adapt to dark and light themes, you can also use specific themes like github-light, github-dark, preferred-color-scheme, etc.
+
+# https://beaudar.lipk.org/
+beaudar:
+  enable: false
+  repo: owner/repo # Change this to "Your GitHub Username/The Repository Name" used for storing blog comments
+  branch: main
+  issue_term: title # Supports pathname, url, title, og:title
+  issue_number:
+  theme: auto
+  label:
+  input_position: top
+  comment_order: desc
+  keep_theme:
+  loading:
 
 ########################################
 # Search
