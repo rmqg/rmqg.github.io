@@ -212,7 +212,7 @@ layout:
 triangle_badge:
   enable: true
   icon: github # same as the icon in the social config
-  link: https://github.com/rmqg/
+  link: https://github.com/rmqg/rmqg.github.io/
 
 anchor_icon: # default use '#' icon, you can use a hexadecimal representation of fontawesome or icon_font, like 'f0c1', you can also use false to hide anchor icon
 
