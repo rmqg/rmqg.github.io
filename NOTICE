@@ -1,0 +1,11 @@
+Repository licensing notes
+
+This repository is distributed with a GNU General Public License v3.0 license file.
+
+The GPLv3 license applies to original material authored by rmqg, site-specific code and configuration modifications authored by rmqg, and friend-link entries included with authorization from their submitters.
+
+This repository contains material derived from D-Sketon/hugo-reimu-template. That upstream template did not publish a license when reviewed on 2026-06-03. The GPLv3 license in this repository does not relicense upstream template material beyond copyrightable modifications owned or authorized by rmqg.
+
+The themes/hugo-theme-reimu submodule points to D-Sketon/hugo-theme-reimu, which is distributed under the MIT License by its upstream project.
+
+Third-party images, icons, embedded media, and linked external resources retain their original rights and are not relicensed by this repository unless explicitly stated.

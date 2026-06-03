@@ -1,21 +1,11 @@
-# hugo-reimu-template
+# 若木秋光のBlog
 
-<img alt="theme version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FD-Sketon%2Fhugo-theme-reimu%2Frefs%2Fheads%2Fmain%2Fpackage.json&query=%24.version&label=theme">
+Source repository for <https://blog.rmqg.org/>.
 
-Template for [hugo-theme-reimu](https://github.com/D-Sketon/hugo-theme-reimu)
+This site is built with Hugo and `hugo-theme-reimu`.
 
-## Usage
+## License
 
-```bash
-git clone https://github.com/D-Sketon/hugo-reimu-template --recursive
-cd hugo-reimu-template
-hugo serve
-```
+Original site content, site-specific code, configuration modifications, and authorized friend-link entries are distributed under the GNU General Public License v3.0.
 
-## How to use
-
-- Change your site configuration in `hugo.toml`
-- Change your theme configuration in `config/_default/params.yml`
-- Change your post cover in `data/covers.yml`
-- Change your avatar in `static/avatar/avatar.webp`
-- Add your posts in `content/post`
+Third-party template, theme, and asset material keeps its original licensing status. See [NOTICE](NOTICE) for details.
