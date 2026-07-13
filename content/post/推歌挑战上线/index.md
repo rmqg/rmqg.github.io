@@ -3,7 +3,7 @@ title: 把三十日推歌问卷做成了一个网站
 description: 推歌挑战的设计、实现与开源记录
 
 date: 2026-07-13T20:50:16+08:00
-lastmod: 2026-07-13T20:50:16+08:00
+lastmod: 2026-07-14T00:56:01+08:00
 
 categories:
   - 项目
@@ -52,3 +52,12 @@ tags:
 
 项目以 **GPL-3.0-only** 开源。现在的界面和规则当然还会继续变化，但至少下一次群里再出现一张推歌问卷时，我们可以真正一起玩起来了。
 
+## 开源发布补记
+
+**GitHub：** [rmqg/playlist-challenge](https://github.com/rmqg/playlist-challenge)
+
+`playlist-challenge` 现已作为完整的公开仓库发布在 [GitHub](https://github.com/rmqg/playlist-challenge)。主页先写给想和朋友一起推歌的人：怎么出题、怎么答、怎样交换感受；后半部分也保留了自托管、部署与贡献入口。
+
+仓库补齐了 GPL 版权与第三方通知、脱敏的部署样板、贡献与安全政策，以及自动运行类型检查、静态检查、测试和生产构建的 CI。平台 Cookie、模型密钥、Bark 配置和运行数据都不会进入公开仓库。
+
+图片题库在境外生产服务器仍默认使用 OpenRouter：实际访问硅基流动服务的效果不佳。对于在中国大陆部署、并愿意自行从目标服务器验证延迟与稳定性的开发者，仓库另附了[硅基流动 SDK 配置参考](https://github.com/rmqg/playlist-challenge/blob/main/docs/SILICONFLOW.md)。

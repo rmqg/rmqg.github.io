@@ -3,7 +3,7 @@ title: 30日間の楽曲紹介アンケートをWebサイトにした
 description: 「推歌挑戦」の設計・実装・オープンソース化の記録
 
 date: 2026-07-13T20:50:16+08:00
-lastmod: 2026-07-13T20:50:16+08:00
+lastmod: 2026-07-14T00:56:01+08:00
 
 categories:
   - プロジェクト
@@ -51,3 +51,13 @@ Next.js 16、React 19、Better Auth、Drizzle ORM、PostgreSQL 17を採用し、
 本番環境にはヘルスチェック、データベースバックアップ、プラットフォームのログイン状態監視、Bark通知がある。秘密情報はサーバーのsecretファイルだけに置き、ブラウザー、ログ、Gitリポジトリへは出さない。
 
 プロジェクトは **GPL-3.0-only** で公開する。画面やルールは今後も変わっていくだろうが、次にグループチャットへ推歌アンケートが流れてきたときは、本当に一緒に遊べるようになった。
+
+## オープンソース公開の追記
+
+**GitHub:** [rmqg/playlist-challenge](https://github.com/rmqg/playlist-challenge)
+
+`playlist-challenge` は [GitHub](https://github.com/rmqg/playlist-challenge) で完全な公開リポジトリとして公開した。トップページはまず、友人と曲を紹介し合いたい人に向けて、質問の作り方、答え方、感想の交換の仕方を説明している。その後にセルフホスト、デプロイ、貢献のための入口も用意した。
+
+リポジトリには GPL の著作権表示と第三者通知、秘匿情報を含まないデプロイ用テンプレート、貢献・セキュリティ方針、型検査・lint・テスト・本番ビルドを実行する CI を追加した。プラットフォーム Cookie、モデルのキー、Bark の認証情報、実行時データは公開ソースに含めない。
+
+画像からの質問抽出は、海外の本番サーバーでは引き続き OpenRouter を既定にしている。その場所から硅基流动への接続が十分に安定しなかったためだ。中国本土でデプロイし、対象サーバーから遅延と安定性を評価する開発者向けに、任意の [SiliconFlow SDK 設定リファレンス](https://github.com/rmqg/playlist-challenge/blob/main/docs/SILICONFLOW.md) も用意した。

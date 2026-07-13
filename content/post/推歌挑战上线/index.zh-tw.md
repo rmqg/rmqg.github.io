@@ -3,7 +3,7 @@ title: 把三十日推歌問卷做成了一個網站
 description: 推歌挑戰的設計、實作與開源記錄
 
 date: 2026-07-13T20:50:16+08:00
-lastmod: 2026-07-13T20:50:16+08:00
+lastmod: 2026-07-14T00:56:01+08:00
 
 categories:
   - 專案
@@ -51,3 +51,13 @@ tags:
 正式環境包含健康檢查、資料庫備份、平台 Cookie 登入狀態監控與 Bark 離線提醒。敏感設定只放在伺服器 secret 中，不進入前端、日誌或 Git 儲存庫。
 
 專案以 **GPL-3.0-only** 開源。現在的介面和規則當然還會繼續改變，但至少下一次群組裡再出現一張推歌問卷時，我們可以真正一起玩起來了。
+
+## 開源發布補記
+
+**GitHub：** [rmqg/playlist-challenge](https://github.com/rmqg/playlist-challenge)
+
+`playlist-challenge` 現已作為完整公開儲存庫發布於 [GitHub](https://github.com/rmqg/playlist-challenge)。首頁先寫給想和朋友一起推歌的人：怎麼出題、怎麼作答、怎樣交換感受；後半部分也保留了自架、部署與貢獻入口。
+
+儲存庫補齊了 GPL 著作權與第三方通知、去識別化的部署樣板、貢獻與安全政策，以及自動執行型別檢查、靜態檢查、測試和正式建置的 CI。平台 Cookie、模型金鑰、Bark 設定和執行資料都不會進入公開儲存庫。
+
+圖片題庫在境外正式伺服器仍預設使用 OpenRouter：實際存取矽基流動服務的效果不佳。對於在中國大陸部署、並願意自行從目標伺服器驗證延遲與穩定性的開發者，儲存庫另附了可選的 [SiliconFlow SDK 設定參考](https://github.com/rmqg/playlist-challenge/blob/main/docs/SILICONFLOW.md)。

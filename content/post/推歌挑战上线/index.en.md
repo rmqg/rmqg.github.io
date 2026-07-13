@@ -3,7 +3,7 @@ title: Turning a 30-Day Song Questionnaire into a Website
 description: The design, implementation, and open-source release of Song Recommendation Challenge
 
 date: 2026-07-13T20:50:16+08:00
-lastmod: 2026-07-13T20:50:16+08:00
+lastmod: 2026-07-14T00:56:01+08:00
 
 categories:
   - Projects
@@ -51,3 +51,13 @@ The project uses Next.js 16, React 19, Better Auth, Drizzle ORM, and PostgreSQL 
 Production includes health checks, database backups, platform-session monitoring, and Bark alerts. Sensitive values remain in server-side secret files and never enter the browser bundle, logs, or repository.
 
 The project is open sourced under **GPL-3.0-only**. The interface and rules will keep evolving, but the next time a song questionnaire appears in a group chat, we can actually play it together.
+
+## Open-source release note
+
+**GitHub:** [rmqg/playlist-challenge](https://github.com/rmqg/playlist-challenge)
+
+`playlist-challenge` is now available as a complete public repository on [GitHub](https://github.com/rmqg/playlist-challenge). Its front page speaks first to people who want to share music with friends—how to make questions, answer them, and trade impressions—while keeping clear self-hosting, deployment, and contribution entry points for developers below.
+
+The repository now includes GPL copyright and third-party notices, redacted deployment templates, contribution and security guidance, and CI that runs type checks, linting, tests, and a production build. Platform cookies, model keys, Bark credentials, and runtime data are excluded from the public source.
+
+The image-question feature still defaults to OpenRouter on the overseas production server because SiliconFlow did not perform well enough from that location. Developers deploying in mainland China who are willing to benchmark latency and reliability from their target server can consult the optional [SiliconFlow SDK reference](https://github.com/rmqg/playlist-challenge/blob/main/docs/SILICONFLOW.md).
