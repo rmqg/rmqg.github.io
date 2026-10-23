@@ -1,19 +1,20 @@
 ---
 title: 转专业纪要，又作对大学前两年的小结
-description: 从电信院到网安院，大学前两年的回顾与思考
-
-banner: /images/posts/transfer-banner.webp
-cover: /images/posts/transfer-banner.webp
+description: 以转专业为主线，回顾大一至大二的完整大学经历，涵盖学业起伏、恋爱、两次转专业的准备与考核过程，并对成长、理想、爱与自我和解进行深度反思。
 
 date: 2026-05-12T01:00:00+08:00
-lastmod: 2026-05-12T01:00:00+08:00
+lastmod: 2026-10-23T21:51:19+08:00
 
 categories:
+  - 生活
   - 随笔
 tags:
   - 大学
   - 转专业
+  - 自我成长
   - 回顾
+banner: /images/posts/transfer-banner.webp
+cover: /images/posts/transfer-banner.webp
 ---
 
 ## 入学以前

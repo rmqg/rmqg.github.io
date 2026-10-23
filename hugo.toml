@@ -64,3 +64,7 @@ target = 'static'
 [[module.imports.mounts]]
 source = 'package.json'
 target = 'assets/_jsconfig/package.json'
+
+# 2026-10-23 自修改：允许MarkDown内嵌HTML
+[markup.goldmark.renderer]
+unsafe = true

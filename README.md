@@ -4,77 +4,31 @@ Source repository for <https://blog.rmqg.org/>.
 
 This site is built with Hugo and `hugo-theme-reimu`.
 
-## 写文章
+## 使用博客工具
 
-### 简单单语言文章
-
-```bash
-./scripts/new-post.sh "文章标题"
-```
-
-文件会创建为 `content/post/文章标题.md`，时间统一使用东八区。
-
-### 图文或多语言文章
-
-推荐使用 Hugo leaf bundle：
+需要 Python 3.9+、PyYAML 和 Hugo。安装 Python 依赖后运行统一菜单：
 
 ```bash
-./scripts/new-post-bundle.sh "文章标题" "url-slug"
+python3 -m pip install PyYAML
+python3 scripts/blog.py
 ```
 
-它会创建：
+按数字选择「新建文章」「新建碎记」「整理/翻译」「本地预览」或「退出」。最简单的流程：
 
-```text
-content/post/url-slug/
-└── index.md
-```
+1. 选 1 或 2 新建草稿，按提示填标题，目录名可直接回车。
+2. 打开终端显示的 `index.md` 写正文，图片、PDF 等附件放在同一目录。
+3. 写完选 3，选文章编号并确认：AI 生成摘要、分类和标签，整理格式并更新三种翻译。
+4. 要发布时将 `draft: true` 改为 `draft: false`，再运行选项 3，同步各语言的发布状态。
 
-图片、PDF 等附件直接放进同一目录，并在 `index.md` 中使用相对路径，例如：
+整理可选单页或全部，会提示确认覆盖已有翻译。`date` 保留首次发表时间，`lastmod` 更新为本次整理时间；全部时间采用 `+08:00`，四语言同步。分类/标签按正文生成并优先复用站内名称，不再给每篇新稿固定套用「随笔/随想」。独立页面不强行添加文章分类。
 
-```markdown
-![截图](screenshot.png)
-```
+日期、更新日期和阅读时间在窄屏自动换行，避免同步更新时间后撑宽手机页面。
 
-博客启用了四种语言。简体中文是 `index.md`，其余翻译分别命名为：
+新稿均为 leaf bundle。四语言文件为 `index.md`、`index.en.md`、`index.ja.md`、`index.zh-tw.md`，普通页面使用相同语言后缀。预览按 Ctrl+C 返回菜单。
 
-```text
-index.en.md       # English
-index.ja.md       # 日本語
-index.zh-tw.md    # 繁體中文
-```
+整理/翻译使用 OpenAI 兼容 API：优先读取 `OPENAI_API_KEY`、`OPENAI_BASE_URL`、`OPENAI_MODEL` 环境变量，其次读取根目录 `.blog-api.json`（`base_url`、`api_key`、`model`），最后在终端安全提示输入 API Key。默认地址为 `https://edge.gpt.rmqg.org/v1`，模型为 `gemini-3.8-flash`。脚本只整理本地文件，不发布或推送。
 
-四个文件应使用相同的 `date`，并各自翻译 `title`、`description`、分类、标签和正文。项目目前没有自动翻译脚本。
-
-### 文章整理脚本
-
-`content/post/format_blog_bundle.py` 只负责：
-
-- 清理 Obsidian 嵌入语法；
-- 为同目录附件生成链接或附件页面；
-- 调用 DeepSeek 为简体中文 `index.md` 生成 description、分类和标签。
-
-它**不会翻译文章**。使用方式：
-
-```bash
-export DEEPSEEK_API_KEY="你的密钥"
-python3 content/post/format_blog_bundle.py "url-slug"
-```
-
-建议先写完并运行格式化脚本，再创建其他语言文件，避免翻译过程中中文源稿继续变化。
-
-### 本地预览
-
-```bash
-hugo server -D
-```
-
-发布前构建：
-
-```bash
-hugo --gc --minify --baseURL "https://blog.rmqg.org/"
-```
-
-推送到 `main` 后，GitHub Actions 会自动构建并部署到 GitHub Pages。
+`.blog-api.json` 已被 `.gitignore` 排除，含密钥，勿上传或分享。环境变量可覆盖本地配置。翻译需联网；已有中文正文、发表日期、发布状态、代码、HTML/CSS、shortcode 与附件地址均保留。
 
 ## License
 

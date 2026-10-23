@@ -1,14 +1,16 @@
 ---
 title: 26-06-02随笔
-description: 听《你的名字》OST 时想到的一点期待
+description: 听《你的名字》原声带有感，期待日后能与伴侣一同欣赏新海诚新作。
 
 date: 2026-06-02T22:46:16+08:00
-lastmod: 2026-06-02T22:46:16+08:00
+lastmod: 2026-10-23T21:51:19+08:00
+showTitle: false
+url: /post/26-06-02随笔/
 
 categories:
+  - 生活
   - 随笔
 tags:
-  - 随想
   - 音乐
   - 动画
 ---

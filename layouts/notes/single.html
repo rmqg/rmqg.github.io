@@ -1,0 +1,6 @@
+{{- define "main" -}}
+  <div class="note-detail">
+    {{- partial "notes/card.html" (dict "page" . "single" true) -}}
+    {{- partial "comment.html" . -}}
+  </div>
+{{- end -}}

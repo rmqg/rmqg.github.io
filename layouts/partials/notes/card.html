@@ -1,0 +1,44 @@
+{{- $page := .page -}}
+{{- $single := .single | default false -}}
+<article class="article note-card h-entry" id="note-{{ $page.File.UniqueID }}">
+  <div class="article-inner">
+    <header class="note-meta">
+      <a class="note-date u-url" href="{{ $page.RelPermalink }}" aria-label="{{ $page.Title }}">
+        <time class="dt-published" datetime="{{ $page.Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ $page.Date.Format "2006-01-02" }}</time>
+      </a>
+      {{- with $page.GetTerms "tags" -}}
+        <div class="note-tags">
+          {{- range . -}}
+            <a href="{{ .RelPermalink }}" rel="tag">#{{ .LinkTitle }}</a>
+          {{- end -}}
+        </div>
+      {{- end -}}
+    </header>
+    {{- if and $page.Title (ne $page.Params.showtitle false) -}}
+      <h2 class="note-title p-name">{{ $page.Title }}</h2>
+    {{- end -}}
+    <div class="article-entry note-body e-content">
+      {{- if $page.Content -}}
+        {{- $body := $page.Content -}}
+        {{- if not $single -}}
+          {{- $prefix := printf "note-%s-" $page.File.UniqueID -}}
+          {{- $body = replace $body " id=\"" (printf " id=\"%s" $prefix) -}}
+          {{- $body = replace $body "href=\"#" (printf "href=\"#%s" $prefix) -}}
+        {{- end -}}
+        {{ $body | safeHTML }}
+      {{- else -}}
+        <p>{{ $page.Title }}</p>
+      {{- end -}}
+    </div>
+    <footer class="note-footer">
+      {{- if $single -}}
+        <a href="{{ "notes/" | relURL }}">{{ i18n "notes_back" }}</a>
+      {{- else -}}
+        <a href="{{ $page.RelPermalink }}">{{ i18n "notes_permalink" }}</a>
+        {{- if ne $page.Params.comments false -}}
+          <a href="{{ $page.RelPermalink }}#comments">{{ i18n "notes_comment" }}</a>
+        {{- end -}}
+      {{- end -}}
+    </footer>
+  </div>
+</article>

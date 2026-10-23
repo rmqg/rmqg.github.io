@@ -1,0 +1,118 @@
+body:has(.notes-timeline, .note-detail) #header {
+  height: 300px;
+  min-height: 300px;
+}
+
+body:has(.notes-timeline, .note-detail) #header-title {
+  margin-top: 0;
+}
+
+.notes-intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  margin: 0 0 24px;
+  padding: 0 8px;
+  color: var(--color-default);
+}
+
+.notes-intro p {
+  margin: 0;
+  line-height: 1.8;
+}
+
+.notes-language-notice {
+  flex-basis: 100%;
+  font-size: 0.9rem;
+}
+
+.notes-feed-link {
+  margin-left: auto;
+  font-size: 0.9rem;
+}
+
+.note-card {
+  margin-bottom: 24px;
+}
+
+.note-card .article-inner {
+  padding: 24px 28px;
+  box-shadow: var(--shadow-card);
+}
+
+.note-meta,
+.note-tags,
+.note-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+
+.note-date {
+  font-variant-numeric: tabular-nums;
+}
+
+.note-tags a {
+  color: var(--color-default);
+  opacity: 0.8;
+}
+
+.note-title {
+  margin: 16px 0 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-default);
+}
+
+.note-card .note-body {
+  padding: 0;
+  overflow-wrap: anywhere;
+}
+
+.note-card .note-body p {
+  line-height: 1.9;
+}
+
+.note-card .note-body h2 {
+  margin: 24px 0 12px;
+  font-size: 1.1rem;
+}
+
+.note-card .note-body h2::before,
+.note-card .note-body h2::after {
+  display: none;
+}
+
+.note-card .note-body img {
+  max-height: 560px;
+  object-fit: contain;
+}
+
+.note-footer {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-h2-border);
+}
+
+@media (max-width: 767px) {
+  body:has(.notes-timeline, .note-detail) #header {
+    height: 240px;
+    min-height: 240px;
+  }
+
+  .note-card .article-inner {
+    padding: 20px 18px;
+  }
+
+  .notes-intro {
+    padding: 0;
+  }
+
+  .notes-feed-link {
+    margin-left: 0;
+  }
+}

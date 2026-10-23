@@ -1,12 +1,13 @@
 ---
-title: Turning a 30-Day Song Questionnaire into a Website
-description: The design, implementation, and open-source release of Song Recommendation Challenge
+title: Turning the 30-Day Song Recommendation Challenge into a Website
+description: 'An introduction to the self-made open-source project 《Song Recommendation Challenge》: turning a thirty-day song recommendation questionnaire into an interactive website that supports day-by-day question release, song search and smart filtering, likes and comments, and an impression-song game mode, along with an explanation of the tech stack and operations plan.'
 
 date: 2026-07-13T20:50:16+08:00
-lastmod: 2026-07-14T00:56:01+08:00
+lastmod: 2026-10-23T21:51:19+08:00
 
 categories:
   - Projects
+  - Tech
 tags:
   - Open Source
   - Music
@@ -14,50 +15,50 @@ tags:
   - AI
 ---
 
-A few days ago, a “30-Day Song Recommendation Challenge” image appeared in a group chat. It felt like the idea deserved more than a static questionnaire. If everyone could attach real songs, listen to other recommendations, leave likes and comments, and keep the results, it could become a small, ongoing music exchange.
+A few days ago, I saw a "30-Day Song Recommendation Challenge" questionnaire image in a group chat, and it suddenly struck me that this kind of activity shouldn't just stay as a static image: if everyone could actually pick songs, listen to what others recommend, leave likes and comments, and have the results preserved, it would feel much more like an ongoing, miniature music exchange meetup.
 
-That idea became **Song Recommendation Challenge**.
+And so, the **Song Recommendation Challenge** was born.
 
-{{<link title="Song Recommendation Challenge · Live" link="https://game.rmqg.org/">}}
+{{<link title="Song Recommendation Challenge · Try It Online" link="https://game.rmqg.org/">}}
 
 {{<link title="playlist-challenge · GitHub" link="https://github.com/rmqg/playlist-challenge">}}
 
-![The challenge answer page](challenge-wide.png)
+![Answering page of the Song Recommendation Challenge](challenge-wide.png)
 
-## Not a fixed 30-question form
+## Not a Fixed 30-Question Survey
 
-The original image is only an example, not a “classic questionnaire” or the site's default content. A new challenge starts with an empty question bank. Its creator may write any number of questions, load the 30-question example, or upload an existing questionnaire image and let a vision model turn it into an editable list.
+That initial image was merely an example—not some sacred "classic question pool," and certainly not the default content of the website. The question bank for a new challenge is empty by default; creators can write any number of questions themselves, load the 30-question template, or directly upload an existing challenge image for a vision model to recognize into an editable list of questions.
 
-Questions may all open at once or unlock one per day. Daily releases use Beijing time consistently. The home page only shows joined challenges with an open, unanswered question, so completed work does not remain in the task area.
+Questions can be made available all at once or unlocked one day at a time. Daily unlocks are calculated uniformly according to Beijing Time. The homepage displays only challenges that are currently unlocked and not yet answered by the user, ensuring completed items don't linger in the to-do area.
 
-## Answer with songs, then talk about them
+## Answering with Songs, Connecting Through Music
 
-Each question accepts one or multiple songs plus a short note. Bilibili videos and NetEase Cloud Music tracks are currently supported. Other participants can open the original media page, like an answer, and comment on it.
+For each question, users can select one or more songs and add their reflections. Currently, Bilibili video links and NetEase Cloud Music track links are supported, allowing other participants to play directly from the source page, leave likes, and comment.
 
-The site also keeps the questionnaire's “impression song” idea: give a friend a keyword and ask them to choose a song for it. Notifications link directly to the relevant question and answer.
+The site also retains the intriguing "impression song" mechanic from the original questionnaire: you give a fellow group member a keyword, and they pick a song for that word. These interactions are delivered via in-app notifications and take you straight to the corresponding question and answer.
 
-Public challenges appear in the discovery area. Token challenges use a six-digit invitation token. Share posters can show up to 30 questions in three columns and include a QR code; private invitations can carry the token in that QR code.
+Public challenges can be discovered in the Plaza, while token challenges use a 6-digit numeric invite credential. Share posters display up to 30 questions across a maximum of three columns and include a QR code; for token challenges, the QR code can directly embed the invitation info.
 
-## How Smart Search finds the original upload
+## How "Smart Search" Finds the Original Track
 
-When given only a song title, the server collects up to 50 real results from the first three Bilibili search pages. A model evaluates the title, uploader, description, publication date, and other evidence. It returns candidate indexes rather than error-prone BV identifiers; the server restores the real URLs afterward.
+When only a song title is entered, the server fetches up to 50 real search results across the first three pages of Bilibili, then feeds evidence—such as titles, uploaders, descriptions, and publish dates—to a model for filtering. The model does not output BV IDs (which are prone to transcription errors); instead, it returns candidate index numbers, and the server resolves the actual links.
 
-Results include structured labels such as original upload, cover, official remake, and derivative work. View counts are only weak supporting evidence. Successful searches are permanently cached by normalized song title, so later requests do not spend model tokens again.
+The filtered results are structured into categories like original work, cover, official remake, and derivative fan creation. View counts serve as weak secondary evidence, but never override title, source, or publish date. Successful results are permanently cached under normalized song titles, eliminating redundant model token expenditures for the same song in the future.
 
-## Implementation and operations
+## Implementation and Operations
 
-The project uses Next.js 16, React 19, Better Auth, Drizzle ORM, and PostgreSQL 17, deployed with Docker Compose. OpenRouter vision models transcribe question images, while DeepSeek filters song searches. Platform-specific behavior stays behind adapters.
+The project is built with Next.js 16, React 19, Better Auth, Drizzle ORM, and PostgreSQL 17, and deployed using Docker Compose. Image question banks are transcribed via an OpenRouter vision model, while song title filtering uses DeepSeek; all platform-specific logic is abstracted behind adapters.
 
-Production includes health checks, database backups, platform-session monitoring, and Bark alerts. Sensitive values remain in server-side secret files and never enter the browser bundle, logs, or repository.
+The production environment includes health checks, database backups, platform cookie session monitoring, and Bark push notifications for session drops. Sensitive configurations are kept exclusively in server secrets, never leaking into frontends, logs, or the Git repository.
 
-The project is open sourced under **GPL-3.0-only**. The interface and rules will keep evolving, but the next time a song questionnaire appears in a group chat, we can actually play it together.
+The project is open-sourced under **GPL-3.0-only**. The interface and rules will naturally continue to evolve, but at least the next time a song recommendation questionnaire pops up in a group chat, we can actually play together.
 
-## Open-source release note
+## Open Source Release Postscript
 
 **GitHub:** [rmqg/playlist-challenge](https://github.com/rmqg/playlist-challenge)
 
-`playlist-challenge` is now available as a complete public repository on [GitHub](https://github.com/rmqg/playlist-challenge). Its front page speaks first to people who want to share music with friends—how to make questions, answer them, and trade impressions—while keeping clear self-hosting, deployment, and contribution entry points for developers below.
+`playlist-challenge` is now published as a complete public repository on [GitHub](https://github.com/rmqg/playlist-challenge). The homepage is written first for people wanting to share music with friends—how to create questions, how to answer, and how to exchange feelings—while the latter half provides entry points for self-hosting, deployment, and contributions.
 
-The repository now includes GPL copyright and third-party notices, redacted deployment templates, contribution and security guidance, and CI that runs type checks, linting, tests, and a production build. Platform cookies, model keys, Bark credentials, and runtime data are excluded from the public source.
+The repository has been rounded out with GPL licensing and third-party notices, sanitized deployment boilerplate, contribution and security policies, as well as CI workflows that automatically run type checks, linters, tests, and production builds. Platform cookies, model API keys, Bark configurations, and runtime data are strictly kept out of the public repo.
 
-The image-question feature still defaults to OpenRouter on the overseas production server because SiliconFlow did not perform well enough from that location. Developers deploying in mainland China who are willing to benchmark latency and reliability from their target server can consult the optional [SiliconFlow SDK reference](https://github.com/rmqg/playlist-challenge/blob/main/docs/SILICONFLOW.md).
+For image question banks, overseas production servers still default to OpenRouter, as real-world access to SiliconFlow services yielded poor results. For developers deploying within mainland China who are willing to test latency and stability from their target servers, the repository also includes a [SiliconFlow SDK configuration reference](https://github.com/rmqg/playlist-challenge/blob/main/docs/SILICONFLOW.md).

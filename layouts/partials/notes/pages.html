@@ -1,0 +1,12 @@
+{{- $notesSite := .Site -}}
+{{- $language := .Site.Params.notes.language | default .Site.Language.Lang -}}
+{{- range hugo.Sites -}}
+  {{- if eq (lower .Language.Lang) (lower $language) -}}
+    {{- $notesSite = . -}}
+  {{- end -}}
+{{- end -}}
+{{- $pages := slice -}}
+{{- with $notesSite.GetPage "/notes" -}}
+  {{- $pages = .RegularPages.ByDate.Reverse -}}
+{{- end -}}
+{{- return $pages -}}

@@ -4,3 +4,6 @@
 /resources
 .codex
 .obsidian
+
+# Local translation credentials (never commit)
+/.blog-api.json

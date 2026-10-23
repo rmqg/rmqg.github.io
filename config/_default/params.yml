@@ -11,6 +11,9 @@ menu:
   - name: archives
     url: "archives"
     icon:
+  - name: notes
+    url: "notes/"
+    icon:
   - name: about
     url: "about"
     icon:
@@ -19,6 +22,10 @@ menu:
     icon:
 
 mainSections: ["post"]
+notes:
+  language: "zh-CN"
+  paginate: 10
+  rss_limit: 20
 # 年，月，日及时间的格式化样式
 # Format style for year,month,date & time
 yearFormat: "2006"
@@ -644,7 +651,9 @@ home_categories:
 injector:
   head_begin: # Inject code snippet right after <head>
   head_end: |-
+    <link rel="stylesheet" href="/css/notes.css">
     <style>
+    .article-date { flex-wrap: wrap; }
     .icon-netease { color: #d43c33; }
     [data-theme="dark"] .icon-netease { color: #f36f65; }
     .icon-xiaohongshu { color: #ff2442; }

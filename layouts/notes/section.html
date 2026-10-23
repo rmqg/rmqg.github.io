@@ -1,0 +1,23 @@
+{{- define "main" -}}
+  {{- $pages := partial "notes/pages.html" . -}}
+  {{- $paginator := .Paginate $pages (.Site.Params.notes.paginate | default 10) -}}
+  <div class="notes-timeline">
+    <div class="notes-intro">
+      <p>{{ .Description }}</p>
+      {{- if ne (lower .Language.Lang) (lower .Site.Params.notes.language) -}}
+        <p class="notes-language-notice">{{ i18n "notes_language_notice" }}</p>
+      {{- end -}}
+      {{- with .OutputFormats.Get "RSS" -}}
+        <a class="notes-feed-link" href="{{ .RelPermalink }}">{{ i18n "notes_subscribe" }}</a>
+      {{- end -}}
+    </div>
+    {{- range $paginator.Pages -}}
+      {{- partial "notes/card.html" (dict "page" . "single" false) -}}
+    {{- else -}}
+      <p class="notes-empty">{{ i18n "notes_empty" }}</p>
+    {{- end -}}
+    {{- if gt $paginator.TotalPages 1 -}}
+      {{- partial "pagination.html" . -}}
+    {{- end -}}
+  </div>
+{{- end -}}

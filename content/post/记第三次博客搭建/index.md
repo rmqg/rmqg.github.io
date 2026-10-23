@@ -1,12 +1,22 @@
 ---
 title: 记第三次博客搭建
-description: 记第三次博客搭建
+description: 详细记录第三代博客从本地调试、Hugo主题配置、GitHub Actions自动部署，到接入自定义域名、多吉云CDN加速与COS对象存储的完整搭建过程，并附完整工作流代码。
 
 date: 2026-04-19T11:58:32+08:00
-lastmod: 2026-04-19T20:52:06+08:00
+lastmod: 2026-10-23T21:51:19+08:00
+
+categories:
+  - 技术
+  - 折腾
+tags:
+  - 博客
+  - Hugo
+  - GitHub Actions
+  - CDN
 ---
 
 ## 序
+
 大概是为了在网安转专业面试的时候有点东西可以用来吹水，所以决定复活已经好久没有这么维护的Blog，又因为作者比较懒散，若还是和上两代Blog一样使用`WordPress+MySql+PHP`搭建，很可能因为携带维护服务器而丢失数据。将Blog Very.3.0部署在`Github Pages`上则可以很好的应对这个问题，即使懈怠维护，所有的文章、评论等都会保留在Github项目里，而不用担心服务器到期造成的损失
 
 因此，我使用了`Hugo+Github Actions`的组合搭建了这个Blog，所选用主题为Claude Sonnet 4.6推荐的二次元主题`hugo-theme-reimu`
@@ -18,6 +28,7 @@ lastmod: 2026-04-19T20:52:06+08:00
 本Blog的所有文件保存在Republic Repository：[https://github.com/rmqg/rmqg.github.io](https://github.com/rmqg/rmqg.github.io)，读者可自行参考对照。
 
 ## Step 1:本地调试
+
 注意到，`hugo-theme-reimu`的作者`D-Sketon`大大在项目的md中表示：
 
 > [!NOTE]
@@ -32,6 +43,7 @@ fork template库并pull到开发终端后，可以按照`hugo-theme-reimu`项目
 `params.yml`改动量相当大，作者从上到下逐行啃完，以下按文件顺序记录所有改动~~（应该是所有的改动没有遗漏吧）~~
 
 ### 基本信息与副标题
+
 先修改`author`、`email`和`description`三项填入自己的信息
 
 副标题的`hugo-theme-reimu`支持打字机动画效果，可在`subtitle.typing`下配置语句：
@@ -54,14 +66,17 @@ subtitle:
 顺带开启了`banner_srcset`，配置不同分辨率的Banner图片，移动端加载更小的版本。`excerpt_link`也改成了`继续阅读`，更符合博客中文为主的思想
 
 ### 页脚与社交链接
+
 `footer.since`根据实际情况改为`2026`，`powered`设为`false`去掉「Powered by Hugo」字样。
 
 `social`字段下填入各平台链接，主题会在侧边栏自动渲染对应图标，填了`email`、`github`、`bilibili`、`telegram`、`steam`，以及`qq`和`weixin`（这两项因为傻逼腾讯不给接口，只能将加好友二维码保存在本地并调用）。`网易云音乐`不在主题内置图标列表里，需要后面在`injector`里单独处理（这部分CSS的编辑由），这里先填写链接占位
 
 ### 显示更新时间与角标
+
 `show_update_time`设为`true`，文章列表和详情页会额外显示最后修改时间。`triangle_badge`也开启，图标选`github`，链接填自己的主页，页面右上角会多一个角标指向我的Github首页
 
 ### 字体
+
 正文字体从`Noto Serif SC`（衬线，类似宋体）改为`Noto Sans SC`（无衬线，类似黑体），代码字体加入了`JetBrains Mono`（因为作者觉得原来的字不适合在网页上阅读）：
 
 ```yaml
@@ -77,9 +92,11 @@ font:
 以上字体都是Google Fonts托管，主题会自动加载，无需额外配置
 
 ### 杂项功能开关
+
 `mermaid.zoom`设为`true`，流程图支持鼠标缩放；`clipboard.copyright.content`填入版权声明文字，复制超过一定字符数时自动附加（最后发现这项功能只在代码块的复制按钮生效，在后续修改中被我禁用此项功能了
 
 ### 评论系统
+
 `comment.default`从`waline`改为`giscus`，再在`giscus`字段下填入从[giscus.app](https://giscus.app/zh-CN)生成的仓库配置：
 
 ```yaml
@@ -98,6 +115,7 @@ giscus:
 `giscus`基于`GitHub Discussions`实现，评论数据保存在仓库里，不用担心第三方服务跑路，也符合了作者这版本省心免维护为宗旨的目标
 
 ### 预加载、版权声明、赞赏与分享
+
 `preloader`各语言的加载文字改成了和副标题呼应的句子
 
 `article_copyright`开启，配置显示作者、标题、日期、更新时间和许可证，许可证类型选`by-nc-sa`
@@ -111,6 +129,7 @@ giscus:
 `home_categories`里顺手填了一个测试分类占位，后续文章多了再整理
 
 ### 代码注入（injector）
+
 这是改动最杂的一块。`injector.head_end`里注入了三段内容：
 - 网易云图标CSS（用`mask`+SVG裁出图标形状，`currentColor`继承颜色实现亮暗模式适配）
 - APlayer固定定位的样式微调、以及一段Live2d模型ID初始化脚本（预设模型避免每次刷新随机换）
@@ -137,6 +156,7 @@ meting:
 `pangu.enable`设为`true`，自动在中英文之间插入空格。~~（因为作者是强迫症晚期）~~
 
 ### 主题色与动态配色
+
 原版`hugo-theme-reimu`是红色系，作者偏好蓝色，把`internal_theme`下所有`--red-*`变量替换为蓝色值，亮色和暗色模式各一套。~~（所有颜色编码由Claude Sonnet 4.6生成）~~变量名叫`--red-*`只是主题的占位符命名，实际颜色由填写的值表示
 
 后来开启了`material_theme`，根据Banner图片自动提取主色调生成动态配色，和Banner搭配起来更协调，~~（因此手动改的颜色基本都被盖掉了）~~。
@@ -151,6 +171,7 @@ meting:
 > 修改任何文件请不要`themes/hugo-theme-reimu`文件夹中修改，否则会出现`Git`使用上的麻烦，应当参照文件在`themes/hugo-theme-reimu`中的位置，在你自己的配置文件夹中新建文件夹，将需要修改的配置复制进去，然后进行修改
 
 ## Step 2:上传到Github Page
+
 这一步是让`Github Actions`在每次push代码后自动构建Hugo站点并部署到`Github Pages`，省去手动操作
 
 `hugo-reimu-template`里没有内置工作流文件，需要自己在`.github/workflows/`目录下新建一个`yaml`文件
@@ -228,12 +249,15 @@ jobs:
 期间踩了一个坑：最初构建命令写的是`hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"`，意图是让`configure-pages`这个Action动态传入`baseURL`，结果它传进来的是`http://`开头的地址，导致生成出来的HTML里所有绝对链接都是HTTP，在强制HTTPS的环境下全部mixed content报错。最后的修法是把`--baseURL`参数从构建命令里删掉，直接在`hugo.toml`里硬编码`baseURL = 'https://blog.rmqg.org/'`，问题解决。~~（找了好半天）~~
 
 ## Step 3:编写“关于”和“友链”
+
 这部分操作就是编写`content/friend.md`和`content/about.md`两个文件，在里面填入自己的文本，同时可以另外编写`content/about.en.md`、`content/about.ja.md`、`content/about.zh-tw.md`等文件，这样在页面右上角切换语言的时候能看到不同语言版本的`关于`等（作者用Claude Sonnet 4.6翻译出来除中文外的语言版本）
 
 ## Step 4:接入自己的域名
+
 以上的操作都是在Github的域名`https://rmqg.github.io/`上完成，后续的操作即使用自己的域名指向Blog并做连接性能优化
 
 ### 绑定自定义域名
+
 首先在Github仓库`Settings → Pages → Custom domain`填入`blog.rmqg.org`并保存，Github会自动在仓库根目录生成一个`CNAME`文件（内容就是一行`blog.rmqg.org`），并立刻触发一次构建部署把这个文件打进去（最终测试的时候发现访问`rmqg.github.io`实际上会重定向到`rmqg.org`，疑似因为浏览器缓存了弃用的DNS解析，换用无痕模式无此问题）
 
 域名托管在`CloudFlare`，在DNS面板添加一条`CNAME`记录：名称填`blog`，目标填`rmqg.github.io`，右侧的云朵图标保持**灰色**（即Proxied关闭，仅DNS解析模式），保存后等DNS生效——生效时间一般几分钟到半小时不等，之后用`blog.rmqg.org`就能访问了
@@ -247,11 +271,13 @@ jobs:
 > 如果刚绑完域名发现`Enforce HTTPS`选项是灰的，等几分钟让Github签完证书就能勾了
 
 ### 曾经考虑过用CloudFlare橙云做加速
+
 作者最初设想是直接开启CloudFlare橙云，让CF的CDN代理所有流量。测试后发现这条路经国内访问很慢，初次访问需要几十秒才能部分加载页面（部分CSS无法渲染），遂寻找其他的路经
 
 所以CloudFlare这里始终保持灰云（仅DNS），把加速任务交给后面的国内CDN
 
 ### 发现加载很慢
+
 上线之后发现Blog的首次加载时间奔一分钟去了，明显不正常，按F12打开开发者工具，Network面板一看，资源请求全卡在`Waiting (TTFB)`上，说明服务端响应本身就慢，不是客户端渲染的问题
 
 排查思路：
@@ -262,6 +288,7 @@ jobs:
 解法方向是在境内架一层CDN，用户的请求打到离他最近的国内CDN节点，节点有缓存就直接返回，缓存没命中才向源站（Github Pages）回源拉一次，后续其他用户访问同一资源就直接从节点取缓存，不再绕境外
 
 ### 尝试多吉云CDN（回源Github Pages）
+
 `多吉云`由于有够用的免费CDN套餐，故选择`（作者没有恰米！）`
 
 在多吉云控制台`CDN加速 → 域名管理 → 添加加速域名`，填入`blog.rmqg.org`，业务类型选`网页/下载`，然后配置回源信息：
@@ -288,6 +315,7 @@ jobs:
 第二天的测试效果：证书有了，HTTPS能访问了，有缓存的资源确实快了，但**缓存没有命中的时候依然很慢**——CDN回源要打到Github Pages服务器，Github那边的响应时间本身就长，CDN只是把"每个用户都慢一次"变成了"只有第一个用户慢一次"，对于作者这种访客极少的小Blog来说缓存命中率极低，实际改善效果相当有限
 
 ### 改用多吉云COS对象存储为源
+
 治本的办法是把Blog的静态文件直接托管到多吉云自己的COS（对象存储）上，CDN以COS为回源，彻底绕开境外的Github Pages。COS服务器在国内，回源延迟几十毫秒量级，而且是内网互通，CDN的缓存冷启动速度也大幅提升
 
 在多吉云控制台`对象存储 → 存储桶列表 → 新建存储桶`，地区选一个国内节点（作者因为肉身在广州，熟人也以南方居多，选择了广州节点），名称随意
@@ -318,6 +346,7 @@ jobs:
 Github Pages那边也保留着一份备份：在`Settings → Pages`取消`Custom domain`，再把工作流改成构建两次，分别以`rmqg.github.io`和`blog.rmqg.org`为`baseURL`，这样两个地址各自拥有独立可用的静态文件，CDN挂了`rmqg.github.io`也能正常浏览。最终为了让两次构建和部署顺序更清晰，把工作流重构为三个串行的job：`build（构建Github Pages版）→ deploy（部署）→ upload-cos（构建COS版并上传）`，完整代码见文末附录
 
 ### 顺手处理了一下本机代理绕行问题
+
 本地开发调试时挂着`Clash`代理，却发现访问`blog.rmqg.org`的流量也走了代理节点——先出国，再回来，等于完全绕过了国内的CDN，CDN加速白配了，而且还干扰了作者判断加速效果
 
 Clash的规则列表是从上往下匹配的，匹配到第一条就停止， 不再检查后续规则。只需要在`/etc/clash/config.yaml`的`rules`字段**最前面**插入几条`DOMAIN-SUFFIX`直连规则，就能让这些域名的流量绕开代理直连：
@@ -334,11 +363,13 @@ Clash的规则列表是从上往下匹配的，匹配到第一条就停止， �
 后续测试发现作者使用`vercel`搭建的`meting-api`严重拖慢了网页加载，本着提升Blog稳定性和可维护性的原站，我使用了`injahow`官方维护的Api：`https://injahow.github.io/meting-api/`。修改完成后整个网页可以快速的访问
 
 ## 终
+
 作者最近也非常迷茫，不知道自己可以做些什么，应当做些什么，重新搭建Blog写下这些文字也是想留下一点记录吧。建在VPS上的Blog可能随着作者的停止维护而消失在互联网的记忆中，但我相信，保存在微软服务器上的这几十MB数据，可以保留更久远一点。即便项目停止维护了，后来者依旧可以在`https://github.com/rmqg/rmqg.github.io/tree/main/content/post`中找到一名大学生写下的一些青涩的token吧
 
 希望这个Blog的文字可以对读者有一点启发、帮助。有任何疑问请联系作者，作者完全不讨厌被人联系。
 
 ## 附
+
 后续对`Github workflow`进行了两处修改：
 
 1. **`cancel-in-progress: false` → `true`**：原来设为`false`，如果短时间内连续push，旧的工作流不会被取消，两次运行都会上传名为`github-pages`的artifact，导致`deploy-pages` Action报错「Multiple artifacts named 'github-pages' were unexpectedly found」。改为`true`后新的push会自动取消旧的运行，问题解决
