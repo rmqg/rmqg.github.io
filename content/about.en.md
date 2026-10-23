@@ -10,7 +10,7 @@ lastmod: 2026-10-23T21:51:19+08:00
 
 CN: 若木秋光
 
-Currently a sophomore at Sun Yat-sen University, majoring in Cyberspace Security. From Hengyang, Hunan. MBTI is IJTP (freshly tested on 2026.10.23). Hobbies include ACG, music, photography, and maintaining my own servers & services & homeLAB. Constantly working on expanding my tech stack.
+Currently a sophomore at Sun Yat-sen University, majoring in Cyberspace Security. From Hengyang, Hunan. MBTI is ISTP (freshly tested on 2026.10.23). Hobbies include ACG, music, photography, and maintaining my own servers & services & homeLAB. Constantly working on expanding my tech stack.
 
 Common contact methods can be found on the right side of the page, with the most frequently used ones at the bottom. If you need additional contact info or have other matters, feel free to reach out. If you have an interesting project, you're also welcome to invite me to join.
 
