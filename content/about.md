@@ -100,5 +100,30 @@ CN：若木秋光
 | :---: | :---: | :---: |
 | <img class="lazyload" src="/images/A871B0408C9F645C79BB1413A01260B7.jpg" alt="QQ" style="opacity:1"> | <img class="lazyload" src="/images/IMG_0334.JPG" alt="WeChat" style="opacity:1"> | <img class="lazyload" src="/images/blog-rmqg-qr.png" alt="Blog" style="opacity:1"> |
 
+# 附录：lbyxiaolizi的Intro
+
+**李欣润**，2025 级本科，目前方向 运维、安全、网工。
+
+ W4terDr0p、Matrix 
+
+## 技术栈与方向
+
+- **安全**：CTF Web （agent 一把梭）
+
+- **开发**：Rust + Go
+
+- **网络与运维**： BGP / BIRD2、WireGuard、Tailscale、EasyTier、 Linux / Docker / PVE 
+
+  **AS201705**
+
+## 联系方式
+
+全网基本同名同头像：**lbyxiaolizi**
+
+- **Email**: [lbyxiaolizi@msn.com](mailto:lbyxiaolizi@msn.com)
+- **GitHub**: [github.com/lbyxiaolizi](https://github.com/lbyxiaolizi)
+
+- **@lbyxiaolizi_66**
+
 ---
 {{< heatMapCard levelStandard="1000,5000,10000" >}}
